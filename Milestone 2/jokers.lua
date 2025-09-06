@@ -6,7 +6,7 @@ local J = {}
 
 local function shuffle(t, rng)
   for i = #t, 2, -1 do
-    local j = rng and rng:random(i) or love.math.random(i)
+    local j = rng and rng:random(1, i) or love.math.random(1, i)
     t[i], t[j] = t[j], t[i]
   end
 end
