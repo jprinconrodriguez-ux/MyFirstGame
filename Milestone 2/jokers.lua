@@ -6,7 +6,19 @@ local J = {}
 
 local function shuffle(t, rng)
   for i = #t, 2, -1 do
-    local j = rng and rng:random(i) or love.math.random(i)
+    local j
+    if rng then
+      -- `love.math` exposes `random` as a plain function, while
+      -- `RandomGenerator` objects expect a method call. Detect which form
+      -- we received so both cases work.
+      if rng.random == love.math.random then
+        j = rng.random(1, i)
+      else
+        j = rng:random(1, i)
+      end
+    else
+      j = love.math.random(1, i)
+    end
     t[i], t[j] = t[j], t[i]
   end
 end
