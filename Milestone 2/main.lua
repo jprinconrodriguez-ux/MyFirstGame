@@ -675,8 +675,8 @@ function love.draw()
   drawButton(BTN_RESTART)
   drawButton(BTN_RANK)
   drawButton(BTN_SUIT)
-     drawButton(BTN_SAVE)
-     drawButton(BTN_LOAD)
+  drawButton(BTN_SAVE)
+  drawButton(BTN_LOAD)
 -- Checklist UI (2.2) + win / end banners
   drawChecklistUI()
 
@@ -696,5 +696,4 @@ function love.draw()
     love.graphics.setColor(1,1,1,1)
     love.graphics.print(statusMsg, sx + 10, sy + 6)
   end
-end
 end
